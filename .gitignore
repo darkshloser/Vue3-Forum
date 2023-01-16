@@ -36,3 +36,5 @@ wheels/
 venv/
 ENV/
 
+# Installed NODE packages
+node_modules

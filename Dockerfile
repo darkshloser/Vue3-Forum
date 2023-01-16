@@ -7,11 +7,14 @@ RUN mkdir /app
 # Set the working directory
 WORKDIR /app
 
+EXPOSE 8000
+
+COPY . /app
 
 RUN apt-get update
 RUN apt-get -y install vim
 
+RUN rm -rf node_modules
+RUN npm install
 
-EXPOSE 8000
-# CMD python app.py
-
+CMD ["npm", "run", "serve"]

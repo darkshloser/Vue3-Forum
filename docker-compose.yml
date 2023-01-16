@@ -2,13 +2,12 @@ version: '3.7'
 
 services:
   forum:
-    build: .
-    container_name: vue3forum
-    # image: node:lts
-    # working_dir: /var/www/html/app/
-    entrypoint: /bin/bash
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: vue3-forum
     expose:
-      - 8000
+      - 8000:8000
     volumes:
       - .:/app
     tty: true
