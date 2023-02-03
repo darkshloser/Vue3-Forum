@@ -5,9 +5,14 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: vue3-forum
+      args:
+        - EXPOSE_PORT=$EXPOSE_PORT
+        - APP_MODE=$APP_MODE
+    container_name: ${CONTAINER_NAME}
+    ports:
+      - ${CONTAINER_PORTS}
     expose:
-      - 8000:8000
+      - ${EXPOSE_PORT}:${EXPOSE_PORT}
     volumes:
-      - .:/app
+      - .:/opt/app
     tty: true
