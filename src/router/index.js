@@ -1,11 +1,17 @@
 import { createRouter, createWebHistory } from "vue-router";
-import HomeView from "../views/HomeView.vue";
+import PageHome from '@/components/PageHome.vue';
 
 const routes = [
   {
     path: "/",
-    name: "home",
-    component: HomeView,
+    name: "Home",
+    component: PageHome,
+  },
+  {
+    path: "/thread/:id",
+    name: "ThreadShow",
+    component: () => import('@/components/PageThreadShow'),
+    props: true
   },
   {
     path: "/about",
